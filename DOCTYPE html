@@ -1,0 +1,24 @@
+# DOCTYPE-html
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php 
+        echo("<script>
+            var varUA = navigator.userAgent.toLowerCase();
+            if(varUA.match('android') != null) {
+                location.replace('kakaotalk://melon?action=playmusic&type=song&menuid=1000000932&mediaid=".$_GET['id']."');
+                location.replace('kakaotalk://inappbrowser/close');
+            } else {
+                location.replace('kakaotalk://melon?action=playmusic&type=song&menuid=1000000932&mediaid=".$_GET['id']."');
+                setTimeout(() => {
+                    location.replace('kakaotalk://web/close');
+                }, 0);
+            }
+        </script>");
+    ?>
+</body>
+</html>
